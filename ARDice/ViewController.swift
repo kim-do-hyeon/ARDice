@@ -19,6 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
+        /* 376. Bring the Moon into Yout Living Room Using AR */
 //        let sphare = SCNSphere(radius: 0.2)
 //
 //        let material = SCNMaterial()
@@ -37,6 +38,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.automaticallyUpdatesLighting = true
         
+        /* 368. How to Find and Import 3D Models for AR */
         // Create a new scene
         let dicescene = SCNScene(named:"art.scnassets/diceCollada.scn")!
         
