@@ -81,10 +81,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             let results = sceneView.hitTest(touchLocation, types: .existingPlaneUsingExtent)
             
-            if !results.isEmpty {
-                print("Touched the plane")
-            } else {
-                print("Touched somewhere else")
+//            if !results.isEmpty {
+//                print("Touched the plane")
+//            } else {
+//                print("Touched somewhere else")
+//            }
+            
+            /* 371. How to Place Our Dice in 3D Using */
+            if let hitResult = results.first{
+                
+                // Create a new scene
+                let dicescene = SCNScene(named:"art.scnassets/diceCollada.scn")!
+        
+                if let diceNode = dicescene.rootNode.childNode(withName: "Dice", recursively: true){
+        
+                    diceNode.position = SCNVector3(
+                        x: hitResult.worldTransform.columns.3.x,
+                        y: hitResult.worldTransform.columns.3.y + diceNode.boundingSphere.radius,
+                        z: hitResult.worldTransform.columns.3.z
+                    )
+        
+                    sceneView.scene.rootNode.addChildNode(diceNode)
+                }
             }
         }
     }
