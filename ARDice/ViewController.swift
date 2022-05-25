@@ -102,6 +102,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     )
         
                     sceneView.scene.rootNode.addChildNode(diceNode)
+                    
+                    /* 372. How to Animate 3D Objects in AR */
+                    let randomX = Float(arc4random_uniform(4) + 1) * (Float.pi / 2)
+                    
+                    let randomZ = Float(arc4random_uniform(4) + 1) * (Float.pi / 2)
+                    
+                    diceNode.runAction(
+                        SCNAction.rotateBy(
+                            x: CGFloat(randomX * 5),
+                            y: 0,
+                            z: CGFloat(randomZ * 5),
+                            duration: 0.5)
+                    )
+                    
+                    
                 }
             }
         }
