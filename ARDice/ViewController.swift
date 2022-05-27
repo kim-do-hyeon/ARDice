@@ -148,6 +148,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         rollAll()
     }
     
+    // 374. How to Remove Our 3D Objects from the AR Scene
+    @IBAction func removeAllDice(_ sender: UIBarButtonItem) {
+        if !diceArray.isEmpty{
+            for dice in diceArray{
+                dice.removeFromParentNode()
+            }
+        }
+    }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if anchor is ARPlaneAnchor {
